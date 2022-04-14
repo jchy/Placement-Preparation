@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eevnt Deligation</title>
+    <style>
+        div > div{
+            margin: 20px;
+            background-color: orange;
+            padding:10px;
+            width: 400px;
+        }
+        div > input{
+            margin: 20px;
+            background-color: orange;
+            padding:10px;
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+<!-- Event deligation (an application of event bubbling) -->
+<div id="parent" >
+    <div id="index.html"> Home</div>
+    <div id="about.html" >About</div>
+    <div id="course.html" >Course</div>
+</div>
+
+<!-- // Behaviour Pattern ( an application of event bubbling ) -->
+<div id="container">
+    Name : <input id="name" placeholder="Name" data-uppercase /> <br>
+    Address : <input id="address" placeholder="Address"/><br>
+    Gender : <input id="gender" placeholder="Gender" />
+</div>
+
+<script src="./eventDeligation.js"/>
+</body>
+</html>
