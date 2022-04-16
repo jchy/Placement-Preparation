@@ -14,12 +14,9 @@ function loadImages(numImages = 25) {
         // console.log(data.message)
         const img = document.createElement("img");
         const div = document.createElement("div");
-        div.textContent = count++;
-        div.style.border = "1px solid black";
-        div.style.background = "yellow";
-        div.style.textAlign = "center";
-        div.style.margin = "20px";
+        // div.textContent = count++;
         img.src = `${data.message}`;
+        img.setAttribute("id", 'card-img');
         div.appendChild(img);
         container.appendChild(div);
       });
