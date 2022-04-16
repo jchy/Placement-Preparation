@@ -83,7 +83,12 @@
     flex-wrap: wrap;
     justify-content: center;
 }
-#card-img{
+#card-img-even{
+    margin:10px;
+    width:320px;
+    height:350px;
+}
+#card-img-odd{
     margin:10px;
     width:320px;
     height:350px;

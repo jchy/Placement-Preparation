@@ -16,7 +16,13 @@ function loadImages(numImages = 25) {
         const div = document.createElement("div");
         // div.textContent = count++;
         img.src = `${data.message}`;
-        img.setAttribute("id", 'card-img');
+        count++;
+        if(count%2===0){
+            img.setAttribute("id", 'card-img-even');
+        }
+        else{
+            img.setAttribute("id", 'card-img-odd');
+        }
         div.appendChild(img);
         container.appendChild(div);
       });
