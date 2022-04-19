@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Throttling</title>
+  </head>
+  <body>
+    <div id="container">
+      <div id="count">0</div>
+      <button id="hero-btn">Click Me</button>
+    </div>
+    <script>
+      // window.onload = () => {
+      //     const heroBtn = document.getElementById("hero-button");
+      //     heroBtn.addEventListener("click", throttling(500));
+      // }
+      // let c = 0;
+      // const throttling = (delay) => {
+      //     let lastCall = Date.now();
+      //     return ()=>{
+      //         let currentTime = Date.now();
+      //         if(currentTime-lastCall > delay) {
+      //             lastCall = currentTime;
+      //             const countDiv = document.getElementById("count");
+      //             countDiv.textContent = c++;
+      //         }
+      //     }
+      // }
+
+      const loggerFunc = (args) => {
+        console.count("Throttled Function", this.context, args);
+      };
+
+      const throttle = (fn, limit) => {
+        let flag = true;
+        return function () {
+          let context = this;
+          let args = arguments;
+          if (flag) {
+            fn.apply(context, args);
+            flag = false;
+            setTimeout(() => {
+              flag = true;
+            }, limit);
+          }
+        };
+      };
+
+      const betterLoggerFunction = throttle(loggerFunc, 1000, "jchy", "chy");
+      //   window.addEventListener("load", betterLoggerFunction);
+      const heroBtn = document.getElementById("hero-btn");
+      heroBtn.addEventListener("click", betterLoggerFunction);
+      // This is the normal Function without Throttling
+      //Check the console for the difference between the calls of Normal Function and the Throttled Function
+      //   const normalFunc = () => {
+      //     console.count("Normal Function");
+      //   };
+      //   window.addEventListener("load", normalFunc);
+    </script>
+  </body>
+</html>
