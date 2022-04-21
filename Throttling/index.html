@@ -12,7 +12,33 @@
       <button id="hero-btn">Click Me</button>
     </div>
     <script>
-      // window.onload = () => {
+      
+      let c=0;
+      const loggerFunc = (firstName,lastName,clg) => {
+        console.log(firstName,lastName,clg);
+        const countDiv = document.getElementById("count");
+        countDiv.textContent = c++;
+      };
+
+      const throttle = (fn, limit) => {
+        let flag = true;
+        return ()=>{
+          if(flag){
+            fn();
+            flag=false;
+            setTimeout(()=>{
+              flag=true;
+            },limit);
+          }
+        }
+      };
+
+      const betterLoggerFunction = throttle(()=>loggerFunc("jaswant", "chaudhary", "REC Sonbhadra"), 1000);
+      const heroBtn = document.getElementById("hero-btn");
+      heroBtn.addEventListener("click", betterLoggerFunction);
+
+
+       // window.onload = () => {
       //     const heroBtn = document.getElementById("hero-button");
       //     heroBtn.addEventListener("click", throttling(500));
       // }
@@ -28,36 +54,6 @@
       //         }
       //     }
       // }
-
-      const loggerFunc = (args) => {
-        console.count("Throttled Function", this.context, args);
-      };
-
-      const throttle = (fn, limit) => {
-        let flag = true;
-        return function () {
-          let context = this;
-          let args = arguments;
-          if (flag) {
-            fn.apply(context, args);
-            flag = false;
-            setTimeout(() => {
-              flag = true;
-            }, limit);
-          }
-        };
-      };
-
-      const betterLoggerFunction = throttle(loggerFunc, 1000, "jchy", "chy");
-      //   window.addEventListener("load", betterLoggerFunction);
-      const heroBtn = document.getElementById("hero-btn");
-      heroBtn.addEventListener("click", betterLoggerFunction);
-      // This is the normal Function without Throttling
-      //Check the console for the difference between the calls of Normal Function and the Throttled Function
-      //   const normalFunc = () => {
-      //     console.count("Normal Function");
-      //   };
-      //   window.addEventListener("load", normalFunc);
     </script>
   </body>
 </html>
