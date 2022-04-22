@@ -1,0 +1,23 @@
+body{
+    background-color: bisque;
+}
+
+.main-div{
+    color: blue;
+    margin-top:100px;
+    background-color: cornsilk;
+    padding:50px;
+    border: 1px solid cornsilk;
+    border-radius: 20px solid white;
+}
+#developer{
+    text-align: right;
+}
+#tiny-text{
+    color:crimson;
+}
+
+#main-head{
+    text-align: center;
+    color:deeppink
+}

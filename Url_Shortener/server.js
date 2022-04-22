@@ -6,7 +6,7 @@ const app = express()
 mongoose.connect('mongodb://localhost/urlShortener', {
   useNewUrlParser: true, useUnifiedTopology: true
 })
-
+app.use(express.static(__dirname + '/views'));
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
 
@@ -33,4 +33,6 @@ app.get('/:shortUrl', async (req, res) => {
   res.redirect(shortUrl.full);
 })
 
-app.listen(process.env.PORT || 5000);
+app.listen(process.env.PORT || 5000, ()=>{
+  console.log('listening on port 5000');
+});
