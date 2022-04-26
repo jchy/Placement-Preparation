@@ -39,7 +39,8 @@ const createCard = (userData) => {
 getRollNumber
 .then((userData) => {
    return userData;
-}).then((userData) => {
+})
+.then((userData) => {
     createCard(userData);
 })
 .catch((err) =>{
